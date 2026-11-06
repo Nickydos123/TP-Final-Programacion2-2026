@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Idea.md",
+                "file": "Consigna.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Idea"
+              "title": "Consigna"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Idea.md",
+                "file": "Consigna.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Idea.md",
+                "file": "Consigna.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Idea.md",
+                "file": "Consigna.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,6 +190,7 @@
   },
   "active": "25e799ab1c21fcaf",
   "lastOpenFiles": [
+    "Idea.md",
     "guia4.zip",
     "Guia #3.zip",
     "Guia #2.zip",
@@ -200,8 +201,6 @@
     "ObjectYEnum.zip",
     "IteratorYOtros.zip",
     "Ejemplo.zip",
-    "CollectionDeCollection.zip",
-    "Consigna.md",
-    "Idea.md"
+    "Consigna.md"
   ]
 }
