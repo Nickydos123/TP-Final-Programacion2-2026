@@ -1,0 +1,63 @@
+package modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Comision extends Entidad {
+    private String nombre;
+    private Materia materia;
+    private final List<Alumno> alumnos = new ArrayList<>();
+
+    public Comision() {
+    }
+
+    public Comision(String nombre, Materia materia) {
+        this(0, nombre, materia);
+    }
+
+    public Comision(int id, String nombre, Materia materia) {
+        super(id);
+        this.nombre = nombre;
+        this.materia = materia;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Materia getMateria() {
+        return materia;
+    }
+
+    public void setMateria(Materia materia) {
+        this.materia = materia;
+    }
+
+    public List<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void agregarAlumno(Alumno alumno) {
+        if (alumno != null && !alumnos.contains(alumno)) {
+            alumnos.add(alumno);
+        }
+    }
+
+    public void quitarAlumno(Alumno alumno) {
+        alumnos.remove(alumno);
+    }
+
+    @Override
+    public String toString() {
+        return "Comision{" +
+                "id=" + getId() +
+                ", nombre='" + nombre + '\'' +
+                ", materia=" + materia +
+                ", alumnos=" + alumnos +
+                '}';
+    }
+}
