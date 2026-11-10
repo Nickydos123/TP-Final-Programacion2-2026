@@ -6,13 +6,14 @@ import java.util.List;
 public class Ayudante extends Persona {
     private String area;
     private Alumno alumnoVinculado;
-    private final List<Comision> comisiones = new ArrayList<>();
+    private List<Comision> comisiones = new ArrayList<>();
 
     public Ayudante() {
     }
 
     public Ayudante(String nombre, String apellido, String dni, String email, String telefono, String area) {
         super(nombre, apellido, dni, email, telefono);
+        this.comisiones = new ArrayList<>();
         this.area = area;
     }
 

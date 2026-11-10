@@ -6,7 +6,7 @@ import java.util.List;
 public class Materia extends Entidad {
     private String codigo;
     private String nombre;
-    private final List<Comision> comisiones = new ArrayList<>();
+    private List<Comision> comisiones = new ArrayList<>();
 
     public Materia() {
     }
@@ -17,6 +17,7 @@ public class Materia extends Entidad {
 
     public Materia(int id, String codigo, String nombre) {
         super(id);
+        this.comisiones = new ArrayList<>();
         this.codigo = codigo;
         this.nombre = nombre;
     }

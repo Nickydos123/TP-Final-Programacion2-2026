@@ -5,13 +5,14 @@ import java.util.List;
 
 public class Alumno extends Persona {
     private Integer legajo;
-    private final List<Comision> comisiones = new ArrayList<>();
+    private List<Comision> comisiones = new ArrayList<>();
 
     public Alumno() {
     }
 
     public Alumno(String nombre, String apellido, String dni, String email, String telefono, Integer legajo) {
         super(nombre, apellido, dni, email, telefono);
+        comisiones = new ArrayList<>();
         this.legajo = legajo;
     }
 

@@ -6,7 +6,7 @@ import java.util.List;
 public class Comision extends Entidad {
     private String nombre;
     private Materia materia;
-    private final List<Alumno> alumnos = new ArrayList<>();
+    private List<Alumno> alumnos;
 
     public Comision() {
     }
@@ -17,10 +17,10 @@ public class Comision extends Entidad {
 
     public Comision(int id, String nombre, Materia materia) {
         super(id);
+        this.alumnos = new ArrayList<>();
         this.nombre = nombre;
         this.materia = materia;
     }
-
     public String getNombre() {
         return nombre;
     }
