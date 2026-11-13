@@ -1,4 +1,7 @@
-package modelo;
+package modelo.academicas;
+
+import modelo.Alumno;
+import modelo.Entidad;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +10,9 @@ public class Comision extends Entidad {
     private String nombre;
     private Materia materia;
     private List<Alumno> alumnos;
+    private List<Horario> horarios;
+    private List<Clase> clases;
+
 
     public Comision() {
     }
@@ -50,6 +56,15 @@ public class Comision extends Entidad {
     public void quitarAlumno(Alumno alumno) {
         alumnos.remove(alumno);
     }
+
+    /**
+     Agregar:
+     -agregarHorario()
+     -quitarHorario()
+     -agregarClase()
+     -quitarClase
+     */
+
 
     @Override
     public String toString() {

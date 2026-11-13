@@ -1,12 +1,14 @@
 package modelo;
 
+import modelo.academicas.Comision;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Ayudante extends Persona {
     private String area;
     private Alumno alumnoVinculado;
-    private List<Comision> comisiones = new ArrayList<>();
+    private List<Comision> comisiones = new ArrayList<>(); /// Lista de comisiones a la cual el ayudante pertenece
 
     public Ayudante() {
     }

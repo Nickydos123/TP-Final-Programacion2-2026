@@ -1,5 +1,19 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Sistema de asistencia y organización de clases");
+        /**
+         * Crear evento agenda.
+         *         Clase:
+         *          -agregarMaterial();
+         *         Materia:
+         *          -quitarComision()
+         *         Ayudante:
+         *          -quitarComision()
+         *         comision:
+         *         Agregar:
+     *                      -agregarHorario()
+         *                 -quitarHorario()
+         *                 -agregarClase()
+         *                 -quitarClase
+         *                 */
     }
 }

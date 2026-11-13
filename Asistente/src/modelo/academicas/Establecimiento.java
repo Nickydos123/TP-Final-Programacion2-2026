@@ -1,6 +1,8 @@
-package modelo;
+package modelo.academicas;
 
-public class Establecimiento extends Entidad{
+import modelo.Entidad;
+
+public class Establecimiento extends Entidad {
     private String nombre;
     private String direccion;
     private String localidad;
@@ -38,7 +40,6 @@ public class Establecimiento extends Entidad{
     public void setLocalidad(String localidad) {
         this.localidad = localidad;
     }
-
 
 
     @Override

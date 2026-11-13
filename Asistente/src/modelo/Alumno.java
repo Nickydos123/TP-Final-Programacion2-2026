@@ -1,31 +1,33 @@
 package modelo;
 
+import modelo.academicas.Comision;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Alumno extends Persona {
-    private Integer legajo;
+    private String legajo;
     private List<Comision> comisiones = new ArrayList<>();
 
     public Alumno() {
     }
 
-    public Alumno(String nombre, String apellido, String dni, String email, String telefono, Integer legajo) {
+    public Alumno(String nombre, String apellido, String dni, String email, String telefono, String legajo) {
         super(nombre, apellido, dni, email, telefono);
         comisiones = new ArrayList<>();
         this.legajo = legajo;
     }
 
-    public Alumno(int id, String nombre, String apellido, String dni, String email, String telefono, Integer legajo) {
+    public Alumno(int id, String nombre, String apellido, String dni, String email, String telefono, String legajo) {
         super(id, nombre, apellido, dni, email, telefono);
         this.legajo = legajo;
     }
 
-    public Integer getLegajo() {
+    public String getLegajo() {
         return legajo;
     }
 
-    public void setLegajo(Integer legajo) {
+    public void setLegajo(String legajo) {
         this.legajo = legajo;
     }
 
@@ -40,6 +42,9 @@ public class Alumno extends Persona {
     }
 
     public void quitarComision(Comision comision) {
+        /// Completar
+        /// Completar
+        /// Completar
         comisiones.remove(comision);
     }
 

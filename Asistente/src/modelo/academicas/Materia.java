@@ -1,4 +1,6 @@
-package modelo;
+package modelo.academicas;
+
+import modelo.Entidad;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,12 +8,14 @@ import java.util.List;
 public class Materia extends Entidad {
     private String codigo;
     private String nombre;
-    private List<Comision> comisiones = new ArrayList<>();
+    private List<Comision> comisiones;
 
     public Materia() {
+        this.comisiones = new ArrayList<>();
     }
 
     public Materia(String codigo, String nombre) {
+        this.comisiones = new ArrayList<>();
         this(0, codigo, nombre);
     }
 
@@ -49,6 +53,9 @@ public class Materia extends Entidad {
     }
 
     public void quitarComision(Comision comision) {
+        /// COMPLETAR
+        /// COMPLETAR
+        /// COMPLETAR
         comisiones.remove(comision);
     }
 
