@@ -1,12 +1,10 @@
-import excepcion.EntidadNoEncontradaException;
-import excepcion.PersistenciaException;
-import modelo.Alumno;
-import persistencia.AlumnoRepositorio;
+import comun.excepcion.EntidadNoEncontradaException;
+import comun.excepcion.PersistenciaException;
+import features.alumnos.modelo.Alumno;
+import features.alumnos.persistencia.AlumnoRepositorio;
+import features.ayudantes.modelo.Ayudante;
+import features.ayudantes.persistencia.AyudanteRepositorio;
 
-import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Arrays;
 
 public class Main {
@@ -45,7 +43,24 @@ public class Main {
             System.out.println(Arrays.toString(e.getStackTrace()));
         }
 
+        Ayudante ayudante1 = new Ayudante("Rafael", "Santarone", "40307053", "rafa.d.santa@gmail.com", "2235335564", "Programacion");
+        Ayudante ayudante2 = new Ayudante("Rafael", "Dopplegenger", "40307054", "rafa.d.santa@gmail.com", "2235335564", "Matematica");
+        AyudanteRepositorio ayudantesR = new AyudanteRepositorio();
 
+        try {
+            ayudantesR.guardar(ayudante1);
+            System.out.println(ayudantesR.listar());
+            System.out.println(ayudantesR.buscarPorId(ayudante1.getId()));
+
+            ayudantesR.guardar(ayudante2);
+            System.out.println(ayudantesR.listar());
+            System.out.println(ayudantesR.buscarPorId(ayudante2.getId()));
+
+            ayudantesR.eliminar(ayudante1.getId());
+            System.out.println(ayudantesR.listar());
+        } catch (PersistenciaException | EntidadNoEncontradaException e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
 
 
     }
