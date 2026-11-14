@@ -7,25 +7,17 @@ import java.sql.SQLException;
 public class ConnectDB {
     private static Connection conn;
 
-    private static String url = "jdbc:mysql://127.0.0.1:3307/testTPP";
-    private static String user = "root";
-    private static String password = "root1234";
+    private static String URL = "jdbc:mysql://localhost:3307/testTPP";
+    private static String USER = "root";
+    private static String PASSWORD = "root1234";
 
-    public static Connection getConnection()
-
-    {
-        if(conn == null)
-        {
-            try {
-                conn = DriverManager.getConnection(url,user,password);
-            }
-            catch (SQLException e)
-            {
-                e.getMessage();
-            }
+    public static Connection getConnection() throws SQLException {
+        if (conn == null || conn.isClosed()) {
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
         }
         return conn;
     }
+
 
     public static void closeConnection()
     {
