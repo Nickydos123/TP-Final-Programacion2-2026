@@ -1,0 +1,328 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Font << /F1 1 0 R /F2 2 0 R >> >>
+endobj
+4 0 obj
+<< /Length 3937 >>
+stream
+BT /F2 16 Tf 0.1 0.2 0.5 rg 50 700 Td (Sistema de Asistencia y Organizacion de Clases) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 674 Td (Trabajo Practico Final - Programacion II \(2026\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 647 Td (Documento tecnico generado en base al codigo fuente del repositorio.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 634 Td (Version: Noviembre 2026) Tj ET
+0.5 0.5 0.5 RG 0.5 w 50 621 m 545 621 l S
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 589 Td (1. Descripcion General del Sistema) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 572 Td (Aplicacion de escritorio en Java para que un profesor pueda organizar sus materias,) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 559 Td (comisiones y tomar asistencia de alumnos de forma eficiente.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 546 Td (Funciona sin conexion a Internet ni login, almacenando datos en MySQL via JDBC.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 529 Td (Objetivo principal: permitir llegar rapido a la comision y tomar lista) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 516 Td (sin pasos innecesarios.) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 491 Td (2. Estructura de Paquetes Actual) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 474 Td (src/) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 462 Td (  Main.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 450 Td (  createTables.sql) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 438 Td (  comun/) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 426 Td (    enums/     DiaSemana.java  |  EstadoAsistencia.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 414 Td (    excepcion/ EntidadNoEncontradaException.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 402 Td (               PersistenciaException.java  |  ValidacionException.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 390 Td (    modelo/    Entidad.java \(abstracta\)  |  Persona.java \(abstracta\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 378 Td (    persistencia/ ConnectDB.java  |  Repositorio.java \(interfaz generica\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 366 Td (    util/      Verificador.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 354 Td (  features/) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 342 Td (    agenda/modelo/  EventoAgenda.java \(abstracta\)  |  Recordatorio.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 330 Td (    alumnos/modelo/ Alumno.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 318 Td (    alumnos/persistencia/ AlumnoRepositorio.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 306 Td (    ayudantes/modelo/ Ayudante.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 294 Td (    ayudantes/persistencia/ AyudanteRepositorio.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 282 Td (    clases/modelo/ Asistencia.java  |  Clase.java  |  Material.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 270 Td (    establecimientos/modelo/ Establecimiento.java  |  Horario.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 258 Td (    materias/modelo/ Comision.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 246 Td (    materias/modelo/materia/model/ Materia.java) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 234 Td (    materias/modelo/materia/persistencia/ MateriaRepositorio.java) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 210 Td (3. Clases del Sistema) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 191 Td (3.1 Capa Comun \(comun/\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 177 Td (Entidad \(abstracta\): clase base de todas las entidades persistibles.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 164 Td (  - Atributos: id \(int\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 151 Td (  - Regla: id == 0 significa entidad nueva, aun no guardada.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 138 Td (  - Metodos: getId\(\), setId\(\), esNueva\(\), equals\(\), hashCode\(\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 121 Td (Persona \(abstracta, extends Entidad\): factoriza campos de Alumno y Ayudante.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 108 Td (  - Atributos: nombre, apellido, dni, email, telefono) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 91 Td (Repositorio<T extends Entidad> \(interfaz generica\): contrato CRUD.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 78 Td (  - listar\(\), buscarPorId\(int\), guardar\(T\), actualizar\(T\), eliminar\(int\)) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 14 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources 3 0 R >>
+endobj
+6 0 obj
+<< /Length 4806 >>
+stream
+BT /F1 9 Tf 0 0 0 rg 60 800 Td (ConnectDB: Singleton de conexion a MySQL \(localhost:3307/testTPP\).) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 787 Td (Verificador: Utilidad de validacion de entradas por consola.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 770 Td (Enumeraciones:) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 757 Td (  EstadoAsistencia: SIN_REGISTRAR | PRESENTE | AUSENTE | TARDE | JUSTIFICADA) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 744 Td (  DiaSemana: Lunes | Martes | Miercoles | Jueves | Viernes | Sabado | Domingo) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 727 Td (Excepciones personalizadas:) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 714 Td (  PersistenciaException   - error en operaciones de BD) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 701 Td (  EntidadNoEncontradaException - entidad buscada no existe) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 688 Td (  ValidacionException     - datos invalidos \(ej. horario inconsistente\)) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 667 Td (3.2 Feature Agenda) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 653 Td (EventoAgenda \(abstracta, extends Entidad\): base para Clase y Recordatorio.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 640 Td (  - Atributos: fechaHora \(LocalDateTime\), titulo, descripcion, comision) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 627 Td (Recordatorio \(extends EventoAgenda\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 614 Td (  - Atributos: clase \(nullable\), material \(nullable\), realizado \(boolean\)) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 593 Td (3.3 Feature Alumnos) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 579 Td (Alumno \(extends Persona\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 566 Td (  - Atributos: legajo \(String\), comisiones \(List<Comision>\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 553 Td (  - Metodos: agregarComision\(\), quitarComision\(\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 540 Td (AlumnoRepositorio \(implementa Repositorio<Alumno>\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 527 Td (  - CRUD completo y funcional con JDBC.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 514 Td (  - Nota: DNI y legajo NO se pueden actualizar.) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 493 Td (3.4 Feature Ayudantes) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 479 Td (Ayudante \(extends Persona\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 466 Td (  - Atributos: area, alumnoVinculado \(Alumno, nullable\), comisiones) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 453 Td (  - Metodos: agregarComision\(\), quitarComision\(\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 440 Td (AyudanteRepositorio \(implementa Repositorio<Ayudante>\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 427 Td (  - CRUD completo y funcional. Usa LEFT JOIN con tabla alumno.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 414 Td (  - Validacion: alumno vinculado debe estar guardado \(id > 0\).) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 393 Td (3.5 Feature Clases) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 379 Td (Clase \(extends EventoAgenda\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 366 Td (  - Atributos: tema, asistencias \(Map<Alumno, Asistencia>\), materiales \(List<Material>\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 353 Td (  - Hereda: fechaHora, titulo, descripcion, comision) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 340 Td (  - agregarMaterial\(\) PENDIENTE \(cuerpo vacio en codigo actual\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 327 Td (Asistencia \(NO extends Entidad, clave compuesta clase_id+alumno_id en BD\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 314 Td (  - Atributos: alumno, clase, estado \(EstadoAsistencia\), observacion) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 301 Td (Material \(extends Entidad\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 288 Td (  - Atributos: nombre, descripcion, llevado \(boolean\), clase) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 267 Td (3.6 Feature Establecimientos) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 253 Td (Establecimiento \(extends Entidad\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 240 Td (  - Atributos: nombre, direccion, localidad) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 227 Td (Horario \(extends Entidad\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 214 Td (  - Atributos: dia \(DiaSemana\), horaInicio, horaFin, establecimiento, comision) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 201 Td (  - Validacion en constructor: horaInicio < horaFin y comision != null) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 180 Td (3.7 Feature Materias) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 166 Td (Materia \(extends Entidad\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 153 Td (  - Atributos: codigo \(unico\), nombre, comisiones \(List<Comision>\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 140 Td (Comision \(extends Entidad\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 127 Td (  - Atributos: nombre, materia, establecimiento, alumnos, horarios, clases) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 114 Td (  - agregarAlumno\(\), quitarAlumno\(\) implementados) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 101 Td (  - agregarHorario\(\), quitarHorario\(\), agregarClase\(\), quitarClase\(\) PENDIENTES) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 88 Td (MateriaRepositorio \(implementa Repositorio<Materia>\):) Tj ET
+BT /F1 9 Tf 0 0 0 rg 60 75 Td (  - guardar\(\) y buscarPorId\(\) funcionales) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 14 0 R /MediaBox [0 0 595 842] /Contents 6 0 R /Resources 3 0 R >>
+endobj
+8 0 obj
+<< /Length 5554 >>
+stream
+BT /F1 9 Tf 0 0 0 rg 60 800 Td (  - listar\(\) devuelve lista vacia; actualizar\(\) y eliminar\(\) vacios) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 775 Td (4. Base de Datos - Tablas SQL \(testTPP, MySQL utf8mb4\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 758 Td (  Tabla                     Descripcion                    Claves Foraneas) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 746 Td (  materia                   Materias academicas            --) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 734 Td (  establecimiento           Lugares fisicos                --) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 722 Td (  alumno                    Alumnos registrados            --) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 710 Td (  ayudante                  Ayudantes                      -> alumno \(opcional\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 698 Td (  comision                  Comisiones de una materia      -> materia, establecimiento) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 686 Td (  comision_alumno           N:M comision-alumno            -> comision, alumno) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 674 Td (  comision_ayudante         N:M comision-ayudante          -> comision, ayudante) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 662 Td (  horario                   Horarios semanales             -> comision, establecimiento) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 650 Td (  clase                     Encuentros concretos           -> comision) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 638 Td (  material                  Materiales para clase          -> clase) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 626 Td (  asistencia                Asistencia alumno-clase        -> clase, alumno) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 614 Td (  recordatorio              Recordatorios con FK opcnls    -> comision, clase, material) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 590 Td (5. Estado Actual del Proyecto) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 571 Td (Implementado y funcional:) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 557 Td (- [OK] Modelo de dominio completo \(todas las clases\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 544 Td (- [OK] createTables.sql con todas las tablas) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 531 Td (- [OK] AlumnoRepositorio - CRUD completo con JDBC) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 518 Td (- [OK] AyudanteRepositorio - CRUD completo con JDBC \(LEFT JOIN con alumno\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 505 Td (- [OK] MateriaRepositorio - guardar\(\) y buscarPorId\(\) funcionales) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 492 Td (- [OK] ConnectDB - singleton de conexion MySQL) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 479 Td (- [OK] Verificador - validacion de entradas por consola) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 466 Td (- [OK] 3 excepciones personalizadas) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 453 Td (- [OK] Enumeraciones EstadoAsistencia y DiaSemana) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 440 Td (- [OK] Jerarquia: Entidad -> Persona -> {Alumno, Ayudante}) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 427 Td (- [OK] Jerarquia abstracta: Entidad -> EventoAgenda -> {Clase, Recordatorio}) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 414 Td (- [OK] Interfaz generica Repositorio<T extends Entidad>) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 393 Td (Incompleto / Pendiente:) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 379 Td (- [!] MateriaRepositorio.listar\(\)              -> Retorna lista vacia) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 366 Td (- [!] MateriaRepositorio.actualizar\(\)          -> Cuerpo vacio) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 353 Td (- [!] MateriaRepositorio.eliminar\(\)            -> Cuerpo vacio) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 340 Td (- [!] ComisionRepositorio                      -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 327 Td (- [!] EstablecimientoRepositorio               -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 314 Td (- [!] HorarioRepositorio                       -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 301 Td (- [!] ClaseRepositorio                         -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 288 Td (- [!] AsistenciaRepositorio                    -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 275 Td (- [!] MaterialRepositorio                      -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 262 Td (- [!] RecordatorioRepositorio                  -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 249 Td (- [!] Clase.agregarMaterial\(\)                  -> Metodo vacio \(// COMPLETAR\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 236 Td (- [!] Comision.agregarHorario/Clase            -> No implementados) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 223 Td (- [!] Menu interactivo por consola             -> No existe aun) Tj ET
+BT /F1 9 Tf 0 0 0 rg 65 210 Td (- [!] Typo en MateriaRepositorio.mapear\(\)      -> 'cdigo' en lugar de 'codigo') Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 185 Td (6. Pasos a Futuro \(Plan de Desarrollo\)) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 166 Td (Fase 1 - Completar repositorios faltantes) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 152 Td (- MateriaRepositorio: listar\(\), actualizar\(\), eliminar\(\), corregir typo 'cdigo') Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 139 Td (- ComisionRepositorio: CRUD + N:M con comision_alumno y comision_ayudante) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 126 Td (- EstablecimientoRepositorio: CRUD simple) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 113 Td (- HorarioRepositorio: CRUD, mapear DiaSemana y LocalTime) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 100 Td (- ClaseRepositorio: CRUD, mapear LocalDateTime, cargar materiales y asistencias) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 87 Td (- AsistenciaRepositorio: operaciones sobre clave compuesta \(clase_id, alumno_id\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 74 Td (- MaterialRepositorio: CRUD, asociar a clase) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 14 0 R /MediaBox [0 0 595 842] /Contents 8 0 R /Resources 3 0 R >>
+endobj
+10 0 obj
+<< /Length 5362 >>
+stream
+BT /F1 9 Tf 0 0 0 rg 70 800 Td (- RecordatorioRepositorio: CRUD, 3 FK opcionales) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 781 Td (Fase 2 - Completar metodos del modelo) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 767 Td (- Clase.agregarMaterial\(Material m\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 754 Td (- Comision.agregarHorario\(\), quitarHorario\(\), agregarClase\(\), quitarClase\(\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 741 Td (- Materia.quitarComision\(\) - revisar validaciones) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 728 Td (- Corregir paquete de Materia \(materia/model/ -> materia/modelo/\)) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 709 Td (Fase 3 - Menu interactivo por consola) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 695 Td (- Clase Menu principal con opciones numeradas usando Verificador) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 682 Td (- Submenu por entidad: Materias, Comisiones, Alumnos, Ayudantes, Clases, Asistencia) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 669 Td (- Flujo: seleccionar materia -> comision -> clase del dia -> tomar asistencia) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 656 Td (- CRUD de alumnos, ayudantes, establecimientos desde menu) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 643 Td (- Ver recordatorios pendientes al iniciar la aplicacion) Tj ET
+BT /F2 11 Tf 0.0 0.0 0.0 rg 60 624 Td (Fase 4 - Mejoras y pulido) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 610 Td (- Documentar todas las clases con Javadoc) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 597 Td (- Agregar validaciones faltantes \(campos nulos, formatos\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 584 Td (- Implementar backup/exportacion de datos \(opcional\)) Tj ET
+BT /F1 9 Tf 0 0 0 rg 70 571 Td (- Notificaciones de recordatorios vencidos al iniciar \(opcional\)) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 546 Td (7. Diagrama Entidad-Relacion \(DER\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 529 Td (materia \(id PK, codigo UNIQUE, nombre\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 517 Td (  |-- 1:N --> comision \(id PK, nombre, materia_id FK, establecimiento_id FK\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 505 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 493 Td (comision <-- N:M --> alumno  \(via tabla comision_alumno\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 481 Td (comision <-- N:M --> ayudante \(via tabla comision_ayudante\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 469 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 457 Td (alumno \(id PK, nombre, apellido, dni UNIQUE, email, telefono, legajo UNIQUE\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 445 Td (ayudante \(id PK, nombre, apellido, dni UNIQUE, area, alumno_vinculado_id FK nullable\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 433 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 421 Td (establecimiento \(id PK, nombre, direccion, localidad\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 409 Td (  <-- FK desde horario y comision) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 397 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 385 Td (horario \(id PK, dia ENUM, hora_inicio, hora_fin, establecimiento_id FK, comision_id FK\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 373 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 361 Td (clase \(id PK, fecha_hora, titulo, descripcion, tema, comision_id FK\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 349 Td (  |-- 1:N --> material \(id PK, nombre, descripcion, llevado, clase_id FK\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 337 Td (  |-- 1:N --> asistencia \(clase_id PK+FK, alumno_id PK+FK, estado ENUM, observacion\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 325 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 313 Td (recordatorio \(id PK, fecha_hora, titulo, descripcion, realizado,) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 301 Td (              comision_id FK nullable, clase_id FK nullable,) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 289 Td (              material_id FK nullable\)) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 265 Td (8. Diagrama UML de Clases \(simplificado\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 248 Td (<<abstract>> Entidad) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 236 Td (  - id: int) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 224 Td (  + getId\(\), setId\(\), esNueva\(\), equals\(\), hashCode\(\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 212 Td (  |) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 200 Td (  +--<<abstract>> Persona              +--<<abstract>> EventoAgenda) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 188 Td (  |   - nombre, apellido, dni, email   |   - fechaHora, titulo, descripcion, comision) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 176 Td (  |   |                                |   |) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 164 Td (  |   +-- Alumno                       |   +-- Clase) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 152 Td (  |   |     - legajo                   |   |     - tema) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 140 Td (  |   |     - comisiones:List           |   |     - asistencias:Map<Alumno,Asistencia>) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 128 Td (  |   |                                |   |     - materiales:List<Material>) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 116 Td (  |   +-- Ayudante                     |) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 104 Td (  |         - area                     |   +-- Recordatorio) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 92 Td (  |         - alumnoVinculado           |         - clase \(nullable\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 80 Td (  |         - comisiones:List           |         - material \(nullable\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 68 Td (  |                                    |         - realizado:boolean) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 14 0 R /MediaBox [0 0 595 842] /Contents 10 0 R /Resources 3 0 R >>
+endobj
+12 0 obj
+<< /Length 4494 >>
+stream
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 800 Td (  +-- Comision                         +-- Material) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 788 Td (  |     - nombre, materia              |     - nombre, descripcion, llevado) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 776 Td (  |     - establecimiento              |) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 764 Td (  |     - alumnos, horarios, clases   +-- Establecimiento) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 752 Td (  |                                   |     - nombre, direccion, localidad) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 740 Td (  +-- Materia                         +-- Horario) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 728 Td (  |     - codigo, nombre                     - dia:DiaSemana) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 716 Td (  |     - comisiones:List                    - horaInicio, horaFin) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 704 Td (  |                                          - establecimiento, comision) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 692 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 680 Td (<<interface>> Repositorio<T extends Entidad>) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 668 Td (  + listar\(\):List<T>  buscarPorId\(int\):T) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 656 Td (  + guardar\(T\)  actualizar\(T\)  eliminar\(int\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 644 Td (  |) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 632 Td (  +-- AlumnoRepositorio    [COMPLETO]) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 620 Td (  +-- AyudanteRepositorio  [COMPLETO]) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 608 Td (  +-- MateriaRepositorio   [PARCIAL]) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 596 Td (  +-- ComisionRepositorio  [PENDIENTE]) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 584 Td (  +-- ... \(todos los demas\) [PENDIENTE]) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 572 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 560 Td (<<enum>> EstadoAsistencia: SIN_REGISTRAR | PRESENTE | AUSENTE | TARDE | JUSTIFICADA) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 548 Td (<<enum>> DiaSemana: Lunes | Martes | Miercoles | Jueves | Viernes | Sabado | Domingo) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 536 Td () Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 524 Td (Asistencia \(NO extends Entidad\):) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 60 512 Td (  - alumno:Alumno  clase:Clase  estado:EstadoAsistencia  observacion:String) Tj ET
+BT /F2 13 Tf 0.15 0.3 0.55 rg 50 488 Td (9. Cumplimiento de Requisitos de la Consigna) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 471 Td (  Requisito                           Estado) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 459 Td (  ----------------------------------------------------------------------) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 447 Td (  Diagrama UML                        [OK] Disenado \(ver seccion 8\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 435 Td (  4 pilares POO                       [OK] Herencia, Polimorfismo, Abstraccion, Encapsulamiento) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 423 Td (  Min 5 clases                        [OK] Superado \(13+ clases\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 411 Td (  1 Clase Abstracta                   [OK] Entidad, Persona, EventoAgenda) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 399 Td (  1 Interfaz                          [OK] Repositorio<T>) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 387 Td (  1 Enumeracion                       [OK] EstadoAsistencia, DiaSemana) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 375 Td (  Colecciones                         [OK] List<> en Comision, Alumno, Ayudante, Materia) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 363 Td (  Mapa                                [OK] Map<Alumno, Asistencia> en Clase) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 351 Td (  2+ excepciones personalizadas       [OK] 3 excepciones) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 339 Td (  Clase generica                      [OK] Repositorio<T extends Entidad>) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 327 Td (  Persistencia JDBC                   [!!] Parcial \(Alumno/Ayudante OK; faltan otros\)) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 315 Td (  Git/GitHub                          [OK] Repositorio en uso) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 303 Td (  Menu interactivo                    [!!] PENDIENTE) Tj ET
+BT /F1 8 Tf 0.1 0.1 0.4 rg 50 291 Td (  Documentacion/Comentarios           [!!] Parcial) Tj ET
+0.5 0.5 0.5 RG 0.5 w 50 269 m 545 269 l S
+BT /F1 9 Tf 0 0 0 rg 50 261 Td (Documento generado automaticamente en base al codigo fuente del repositorio.) Tj ET
+BT /F1 9 Tf 0 0 0 rg 50 248 Td (TP Final Programacion II - 2026 | Sistema de Asistencia y Organizacion de Clases) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 14 0 R /MediaBox [0 0 595 842] /Contents 12 0 R /Resources 3 0 R >>
+endobj
+14 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R] /Count 5 >>
+endobj
+15 0 obj
+<< /Type /Catalog /Pages 14 0 R >>
+endobj
+xref
+0 16
+0000000000 65535 f
+0000000010 00000 n
+0000000108 00000 n
+0000000211 00000 n
+0000000267 00000 n
+0000004262 00000 n
+0000004370 00000 n
+0000009234 00000 n
+0000009342 00000 n
+0000014954 00000 n
+0000015062 00000 n
+0000020483 00000 n
+0000020593 00000 n
+0000025146 00000 n
+0000025256 00000 n
+0000025343 00000 n
+trailer
+<< /Size 16 /Root 15 0 R >>
+startxref
+25397
+%%EOF

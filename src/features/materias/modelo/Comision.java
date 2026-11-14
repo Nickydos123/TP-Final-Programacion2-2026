@@ -5,6 +5,7 @@ import features.establecimientos.modelo.Establecimiento;
 import features.establecimientos.modelo.Horario;
 import features.clases.modelo.Clase;
 import comun.modelo.Entidad;
+import features.materias.modelo.materia.model.Materia;
 
 import java.util.ArrayList;
 import java.util.List;

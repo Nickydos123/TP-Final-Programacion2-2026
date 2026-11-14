@@ -1,6 +1,7 @@
-package features.materias.modelo;
+package features.materias.modelo.materia.model;
 
 import comun.modelo.Entidad;
+import features.materias.modelo.Comision;
 
 import java.util.ArrayList;
 import java.util.List;
