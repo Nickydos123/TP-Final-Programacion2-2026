@@ -3,6 +3,7 @@ package features.establecimientos.modelo;
 import comun.excepcion.ValidacionException;
 import comun.modelo.Entidad;
 import comun.enums.DiaSemana;
+import features.materias.modelo.Comision;
 
 import java.time.LocalTime;
 
@@ -11,11 +12,12 @@ public class Horario extends Entidad {
     private LocalTime horaInicio;
     private LocalTime horaFin;
     private Establecimiento establecimiento;
+    private Comision comision;
 
     public Horario() {
     }
 
-    public Horario(int id, DiaSemana dia, LocalTime horaInicio, LocalTime horaFin, Establecimiento establecimiento)
+    public Horario(int id, DiaSemana dia, LocalTime horaInicio, LocalTime horaFin, Establecimiento establecimiento, Comision comision)
         throws ValidacionException
     {
         super(id);
@@ -23,6 +25,7 @@ public class Horario extends Entidad {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.establecimiento = establecimiento;
+        this.comision = comision;
         validarHorario();
     }
 
@@ -78,12 +81,23 @@ public class Horario extends Entidad {
         this.establecimiento = establecimiento;
     }
 
+    public Comision getComision() {
+        return comision;
+    }
+
+    public void setComision(Comision comision) {
+        this.comision = comision;
+    }
+
     public void validarHorario() throws ValidacionException {
         if (horaInicio == null || horaFin == null) {
             throw new ValidacionException("La hora de inicio y la hora de fin son obligatorias");
         }
         if (!horaInicio.isBefore(horaFin)) {
             throw new ValidacionException("La hora de inicio debe ser anterior a la hora de fin");
+        }
+        if (comision == null) {
+            throw new ValidacionException("La comisión es obligatoria");
         }
     }
 
@@ -94,6 +108,7 @@ public class Horario extends Entidad {
                 ", horaInicio=" + horaInicio +
                 ", horaFin=" + horaFin +
                 ", establecimiento=" + establecimiento +
+                ", comision=" + comision +
                 '}';
     }
 }

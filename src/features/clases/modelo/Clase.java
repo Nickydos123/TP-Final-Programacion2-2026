@@ -29,8 +29,8 @@ public class Clase extends EventoAgenda {
     public Clase(int id, LocalDateTime fechaHora, String titulo, String descripcion, Comision comision, String tema, Map<Alumno, Asistencia> asistencias, List<Material> materiales) {
         super(id, fechaHora, titulo, descripcion, comision);
         this.tema = tema;
-        this.asistencias = new HashMap<>();
-        this.materiales = new ArrayList<>();
+        this.asistencias = asistencias != null ? asistencias : new HashMap<>();
+        this.materiales = materiales != null ? materiales : new ArrayList<>();
     }
 
     public String getTema() {
