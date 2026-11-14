@@ -149,7 +149,8 @@ CREATE TABLE IF NOT EXISTS asistencia (
         ON UPDATE CASCADE
         ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-github.com/volta2016/resumen-estudios-git/blob/master/resumen estudio.txt
+
+
 CREATE TABLE IF NOT EXISTS recordatorio (
     id INT AUTO_INCREMENT PRIMARY KEY,
     fecha_hora DATETIME NOT NULL,

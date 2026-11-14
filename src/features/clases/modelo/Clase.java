@@ -1,8 +1,8 @@
 package features.clases.modelo;
 
 import features.alumnos.modelo.Alumno;
-import features.agenda.modelo.EventoAgenda;
-import features.materias.modelo.Comision;
+import comun.modelo.EventoAgenda;
+import features.materias.modelo.comision.model.Comision;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
-package features.agenda.modelo;
+package comun.modelo;
 
-import comun.modelo.Entidad;
-import features.materias.modelo.Comision;
+import features.materias.modelo.comision.model.Comision;
 
 import java.time.LocalDateTime;
 

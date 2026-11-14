@@ -2,7 +2,7 @@ package features.ayudantes.modelo;
 
 import features.alumnos.modelo.Alumno;
 import comun.modelo.Persona;
-import features.materias.modelo.Comision;
+import features.materias.modelo.comision.model.Comision;
 
 import java.util.ArrayList;
 import java.util.List;

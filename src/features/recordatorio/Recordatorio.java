@@ -1,12 +1,13 @@
-package features.agenda.modelo;
+package features.recordatorio;
 
+import comun.modelo.EventoAgenda;
 import features.clases.modelo.Clase;
 import features.clases.modelo.Material;
-import features.materias.modelo.Comision;
+import features.materias.modelo.comision.model.Comision;
 
 import java.time.LocalDateTime;
 
-public class Recordatorio extends EventoAgenda{
+public class Recordatorio extends EventoAgenda {
     private Clase clase; /// puede ser null
     private Material material; /// puede ser null
     private boolean realizado;

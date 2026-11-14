@@ -1,7 +1,7 @@
 package features.alumnos.modelo;
 
 import comun.modelo.Persona;
-import features.materias.modelo.Comision;
+import features.materias.modelo.comision.model.Comision;
 
 import java.util.ArrayList;
 import java.util.List;

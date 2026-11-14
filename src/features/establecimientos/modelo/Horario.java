@@ -3,7 +3,7 @@ package features.establecimientos.modelo;
 import comun.excepcion.ValidacionException;
 import comun.modelo.Entidad;
 import comun.enums.DiaSemana;
-import features.materias.modelo.Comision;
+import features.materias.modelo.comision.model.Comision;
 
 import java.time.LocalTime;
 

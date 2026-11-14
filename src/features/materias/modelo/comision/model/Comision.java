@@ -1,4 +1,4 @@
-package features.materias.modelo;
+package features.materias.modelo.comision.model;
 
 import features.alumnos.modelo.Alumno;
 import features.establecimientos.modelo.Establecimiento;
